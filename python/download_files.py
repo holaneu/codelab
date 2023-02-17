@@ -3,8 +3,8 @@ import wget
 
 start = 1
 end = 18
-basic_url = 'https://martinvlach.cz/onlinekarty/images/'
-source_folder = 'vizejsemzraly'
+basic_url = 'https://example.com/'
+source_folder = 'folder'
 
 def numStr(x):
   end_chars = len(str(end))
