@@ -1,5 +1,6 @@
-# verze upravena ChatGPT:
-# To make the code more secure and less prone to errors, I used try and except blocks to catch any potential exceptions that may occur when creating directories or opening files. 
+### Renames files according to the list of "file titles". Using regex, lookup disctionary.
+# Verze upravena ChatGPT:
+# To make the code more secure and less prone to errors, I used try and except blocks to catch any potential exceptions that may occur when creating directories or opening files.
 # It also uses os.path.join() instead of concatenating strings to create file pathss, as this is a more robust way of handling file paths across different operating systems.
 
 import os
@@ -39,7 +40,7 @@ print('*** textfile lines: ', textfile)
 titles_lookup = {}
 
 for item in textfile:
-  pattern = '(^\d{1,})( ?.+$)'
+  pattern = r'(^\d{1,})( ?.+$)'
   parsed = re.match(pattern, item)
   if parsed:
     t_num = parsed.groups()[0].zfill(2)
@@ -52,7 +53,7 @@ for f in files:
   if '.txt' not in f:
     continue  # only process .txt files
   f_name, f_ext = os.path.splitext(f)
-  pattern = '(^\D+)(\d{1,}$)'
+  pattern = r'(^\D+)(\d{1,}$)'
   fn_parsed = re.match(pattern, f_name)
   if fn_parsed:
     f_title = fn_parsed.groups()[0]
